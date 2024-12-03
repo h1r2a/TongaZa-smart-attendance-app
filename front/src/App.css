@@ -1,0 +1,30 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+h1{
+  margin: 0 0;
+}
+
+.page-ct{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+.navbar-ct{
+  flex-basis: 8%;
+  width: 100%;
+  background: #000;
+}
+.content{
+  flex-basis: 92%;
+  width: 100%;
+  flex: 1;
+  background-color: #1e1e1e; /* Fond sombre pour le conteneur */
+  color: #fff; /* Texte en blanc */
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+}
+

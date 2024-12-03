@@ -1,0 +1,188 @@
+.pointage-content {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: row; /* Utiliser un layout en ligne (horizontal) */
+}
+
+.top {
+    width: 30%; /* 30% à droite pour le top */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 10px;
+}
+
+.bottom {
+    width: 70%; /* 70% à gauche pour le flux */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 2px solid #d3d3d3; /* Bordure à gauche pour séparer le flux */
+    flex-direction: column;
+    gap: 10px;
+}
+
+.actions {
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.actions button {
+    width: 180px;
+    height: 60px;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.actions button:hover {
+    transform: scale(1.1);
+}
+
+.btn-green {
+    background: linear-gradient(90deg, rgba(34, 177, 76, 1) 0%, rgba(94, 255, 137, 1) 100%);
+}
+
+.btn-red {
+    background: linear-gradient(90deg, rgba(255, 0, 0, 1) 0%, rgba(255, 112, 112, 1) 100%);
+}
+
+.last-pic {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #211d1d;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+}
+
+.last-pic video,
+.last-pic img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 10px;
+}
+
+.matrix-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 2rem;
+    color: #00ff00;
+    background-color: black;
+    animation: matrix 1s infinite;
+}
+
+@keyframes matrix {
+    0% { transform: translateY(0); opacity: 0.1; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-100%); opacity: 0.1; }
+}
+
+.result-img {
+    width: 400px;
+    height: 300px;
+}
+
+.result-img img {
+    max-width: 100%; /* L'image prend toute la largeur disponible sans dépasser */
+    max-height: 100%; /* L'image prend toute la hauteur disponible sans dépasser */
+    object-fit: contain; /* Préserve les proportions de l'image tout en s'ajustant à son conteneur */
+    image-rendering: auto; /* Meilleure qualité de l'image, surtout sur les écrans haute résolution */
+    display: block; /* Supprime les espaces blancs sous l'image */
+    margin: 0 auto; /* Centre l'image horizontalement */
+}
+
+
+/* Style pour que le conteneur occupe tout l'espace disponible */
+.bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Remplit toute la hauteur de l'écran */
+    background-color: #121212; /* Fond sombre global */
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Tableau sombre */
+  .pointage-table {
+    width: 90%;
+    height: 90%; /* Remplit 90% de l'écran */
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    color: #e0e0e0; /* Texte clair */
+    background-color: #1e1e1e; /* Fond du tableau */
+    border: 1px solid #333; /* Bord sombre */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* En-têtes du tableau */
+  .pointage-table th {
+    background-color: #333; /* Fond sombre pour l'en-tête */
+    color: #ffffff; /* Texte clair */
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 10px;
+    border-bottom: 2px solid #555; /* Bordure contrastée */
+  }
+  
+  /* Cellules du tableau */
+  .pointage-table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #444; /* Bordure entre les cellules */
+    color: #d1d1d1; /* Couleur du texte clair */
+  }
+  
+  /* Ligne alternée */
+  .pointage-table tr:nth-child(even) {
+    background-color: #2a2a2a; /* Couleur pour les lignes paires */
+  }
+  
+  /* Effet au survol */
+  .pointage-table tr:hover {
+    background-color: #444; /* Surbrillance lors du survol */
+    color: #ffffff;
+  }
+  
+  /* Scroll si le contenu dépasse */
+  .pointage-table {
+    overflow: auto;
+  }
+  
+
+  .spinner {
+    border: 4px solid #f3f3f3; /* Couleur de fond */
+    border-top: 4px solid #3498db; /* Couleur du spinner */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
