@@ -186,3 +186,41 @@
     100% { transform: rotate(360deg); }
   }
   
+
+  /* Futuristic AI-inspired animation */
+.ai-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none; /* Make sure it doesn't block other UI elements */
+}
+
+.ai-animation .line {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 2px solid rgba(0, 255, 0, 0.5);
+  animation: moveLine 2s linear infinite;
+}
+
+@keyframes moveLine {
+  0% { transform: translateX(-100%) scaleX(1); }
+  50% { transform: translateX(100%) scaleX(1.2); }
+  100% { transform: translateX(-100%) scaleX(1); }
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 0.1; }
+  50% { opacity: 1; }
+}

@@ -7,7 +7,7 @@ const individuService = {
 
     getAllIndividus: async () => {
         try {
-          const response = await axios.get(`${API_BASE_URL}/get_all_individus/`);
+          const response = await axios.get(`${API_BASE_URL}/get_all_individus`);
           return response.data;
         } catch (error) {
           return error;
