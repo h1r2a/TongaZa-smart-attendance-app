@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import toastr from "toastr";
 const API_BASE_URL = "http://localhost:8000"; // Remplacez par l'URL de votre backend
 
 const individuService = {
@@ -104,6 +104,18 @@ const individuService = {
       return response.data; // The success message from FastAPI
     } catch (error) {
       return error
+    }
+  },
+
+
+  deleteFaceEncoding: async (name) => {
+    try {
+      const response = await axios.delete(`${API_BASE_URL}/delete_encoding/${name}`);
+      toastr.success("People deleted successfully")
+      return response.data; // Success message
+    } catch (error) {
+      console.error("Error deleting face encoding:", error);
+      throw error;
     }
   },
 };

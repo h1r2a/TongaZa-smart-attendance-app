@@ -259,3 +259,120 @@ button:hover {
 button:focus {
   outline: none;
 }
+
+
+/* General styling for Individu */
+.page-ct {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #1e1e1e;
+}
+
+.navbar-ct {
+  background-color: #121212;
+  padding: 10px;
+}
+
+.individu-content {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 0 20px;
+}
+
+.listing {
+  height: 100%;
+  flex-basis: 75%;
+  background: #2a2525;
+  display: flex;
+  flex-direction: column;
+}
+
+.ls-header {
+  background: #000;
+  width: 100%;
+  flex-basis: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-actions {
+  margin-left: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.page-btn {
+  background-color: #6200ea;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.card-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.card {
+  background-color: #181515;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.card-img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Confirmation Modal Styling */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #6200ea;
+  color: white;
+}
+
+button:hover {
+  background-color: #3700b3;
+}

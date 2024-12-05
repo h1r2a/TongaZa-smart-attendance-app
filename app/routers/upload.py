@@ -111,3 +111,21 @@ async def upload_face(file: UploadFile = File(...), name: str = Form(...)):
 
     except Exception as e:
         return JSONResponse(content={"error": str(e)}, status_code=500)
+
+@router.delete("/delete_encoding/{name}")
+async def delete_encoding(name: str):
+    try:
+        # Define the path to the encoding file
+        encoding_file_path = os.path.join(ENCODINGS_DIR, f"{name}_encoding.npy")
+
+        # Check if the encoding file exists
+        if not os.path.exists(encoding_file_path):
+            raise HTTPException(status_code=404, detail="Encoding file not found")
+
+        # Delete the file
+        os.remove(encoding_file_path)
+
+        return {"message": f"Encoding file {name}_encoding.npy deleted successfully"}
+
+    except Exception as e:
+        return JSONResponse(content={"error": str(e)}, status_code=500)
