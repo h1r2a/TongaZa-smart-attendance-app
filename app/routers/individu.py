@@ -4,6 +4,10 @@ from bson import ObjectId
 from database import db
 from utils.serializers import serialize_individu
 from bson import ObjectId
+from fastapi import Query
+
+
+
 router = APIRouter()
 
 class Individu(BaseModel):
@@ -52,14 +56,32 @@ def serialize_individu(individu):
     individu["_id"] = str(individu["_id"])  # Convertit ObjectId en chaîne
     return individu
 
+
 @router.get("/get_all_individus")
-async def get_all_individus():
+async def get_all_individus(
+    page: int = Query(1, ge=1, description="Page number (starts at 1)"),
+    page_size: int = Query(8, ge=1, le=100, description="Number of items per page (max 100)")
+):
     try:
-        individus = await db.individu.find().to_list(length=100)  # Limite à 100 résultats
+        # Calculer les valeurs pour le skip et la limite
+        skip = (page - 1) * page_size
+        limit = page_size
+
+        # Récupérer les individus en fonction de la pagination
+        individus = await db.individu.find().skip(skip).limit(limit).to_list(length=limit)
+        total_count = await db.individu.count_documents({})  # Nombre total d'individus
+
         if not individus:
             raise HTTPException(status_code=404, detail="No individus found")
         
-        # Sérialiser tous les individus pour convertir ObjectId en chaîne
-        return [serialize_individu(individu) for individu in individus]
+        # Sérialiser les individus et ajouter des métadonnées
+        return {
+            "data": [serialize_individu(individu) for individu in individus],
+            "page": page,
+            "page_size": page_size,
+            "total_pages": (total_count + page_size - 1) // page_size,  # Arrondi vers le haut
+            "total_items": total_count
+        }
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+

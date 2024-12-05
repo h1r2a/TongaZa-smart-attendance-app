@@ -5,14 +5,21 @@ const API_BASE_URL = "http://localhost:8000"; // Remplacez par l'URL de votre ba
 const individuService = {
 
 
-    getAllIndividus: async () => {
-        try {
-          const response = await axios.get(`${API_BASE_URL}/get_all_individus`);
-          return response.data;
-        } catch (error) {
-          return error;
-        }
-      },
+  getAllIndividus: async (page = 1, pageSize = 8) => {
+    try {
+      const response = await axios.get(`${API_BASE_URL}/get_all_individus`, {
+        params: {
+          page,
+          page_size: pageSize, // correspond à "page_size" attendu par le backend
+        },
+      });
+      return response.data; // Les métadonnées et les données paginées
+    } catch (error) {
+      console.error("Erreur lors de la récupération des individus:", error);
+      throw error; // Remontez l'erreur si nécessaire
+    }
+  },
+  
 
 
   // Ajouter un nouvel individu
